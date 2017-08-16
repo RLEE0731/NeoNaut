@@ -9,4 +9,4 @@ Currently we use carthage for dependency managemeny in the project.
 
 # Light Wallet API
 Currently using the CoZ light wallet api for backend service connections to the NEO blockchain:
-https://github.com/CityOfZion/neon-wallet-db
+https://github.com/CityOfZion/neo-api-js
