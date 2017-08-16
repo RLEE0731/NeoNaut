@@ -30,6 +30,6 @@ final class LoginViewController: UIViewController, InterfaceInitializing
     
     @IBAction func dismissAction(_ sender: Any)
     {
-        self.delegate?.loginViewController(controller: self, didLogin: false)
+        self.delegate?.loginViewController(controller: self, didLogin: true)
     }
 }

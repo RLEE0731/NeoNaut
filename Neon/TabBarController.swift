@@ -10,11 +10,11 @@ import UIKit
 
 class TabBarController: UITabBarController
 {
-
+    var isLoggedIn = false
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -22,9 +22,15 @@ class TabBarController: UITabBarController
     override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        let login = LoginViewController.loadFromNib()
-        login.delegate = self
-        self.present(login, animated: true, completion: nil)
+        
+        guard self.isLoggedIn else
+        {
+            let login = LoginViewController.loadFromNib()
+            login.delegate = self
+            self.present(login, animated: true, completion: nil)
+            return
+        }
+        
     }
 }
 
@@ -33,6 +39,7 @@ extension TabBarController: LoginViewControllerDelegate
 {
     func loginViewController(controller: LoginViewController, didLogin: Bool)
     {
+        self.isLoggedIn = didLogin
         self.dismiss(animated: true, completion: nil)
     }
 }
