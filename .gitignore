@@ -22,6 +22,7 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+.DS_Store
 
 ## Obj-C/Swift specific
 *.hmap
@@ -51,6 +52,8 @@ playground.xcworkspace
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
+Cartfile.resolved
+Carthage
 Carthage/Checkouts
 
 Carthage/Build
