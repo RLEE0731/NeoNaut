@@ -14,7 +14,7 @@ final class HistoryViewController: UIViewController, InterfaceInitializing
     static func loadFromNib() -> HistoryViewController
     {
         let name = String(describing: self)
-        guard let controller = UIStoryboard.overview.instantiateViewController(withIdentifier: name) as? HistoryViewController else
+        guard let controller = UIStoryboard.history.instantiateViewController(withIdentifier: name) as? HistoryViewController else
         { return HistoryViewController() }
         return controller
     }

@@ -13,7 +13,7 @@ final class SettingsViewController: UIViewController, InterfaceInitializing
     static func loadFromNib() -> SettingsViewController
     {
         let name = String(describing: self)
-        guard let controller = UIStoryboard.overview.instantiateViewController(withIdentifier: name) as? SettingsViewController else
+        guard let controller = UIStoryboard.settings.instantiateViewController(withIdentifier: name) as? SettingsViewController else
         { return SettingsViewController() }
         return controller
     }
