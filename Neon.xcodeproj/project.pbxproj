@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */; };
-		1AFEED9A1F43F0EA00D77FC4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFEED991F43F0EA00D77FC4 /* FirstViewController.swift */; };
 		1AFEED9F1F43F0EA00D77FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEED9D1F43F0EA00D77FC4 /* Main.storyboard */; };
 		1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEEDA01F43F0EA00D77FC4 /* Assets.xcassets */; };
 		1AFEEDA41F43F0EA00D77FC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEEDA21F43F0EA00D77FC4 /* LaunchScreen.storyboard */; };
 		1AFEEDAE1F43F8C200D77FC4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEEDAD1F43F8C200D77FC4 /* Cartfile */; };
 		1AFEEDB11F4400D500D77FC4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFEEDB01F4400D500D77FC4 /* Alamofire.framework */; };
 		1AFEEDB31F4400E100D77FC4 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFEEDB21F4400E100D77FC4 /* ObjectMapper.framework */; };
+		E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54D41F4412B100E898D9 /* TabBarController.swift */; };
+		E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54DF1F44211400E898D9 /* LoginViewController.swift */; };
+		E40A54E21F44211400E898D9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E40A54E01F44211400E898D9 /* LoginViewController.xib */; };
+		E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AFEED941F43F0EA00D77FC4 /* Neon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1AFEED991F43F0EA00D77FC4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		1AFEED9E1F43F0EA00D77FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AFEEDA01F43F0EA00D77FC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AFEEDA31F43F0EA00D77FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -28,6 +30,10 @@
 		1AFEEDAD1F43F8C200D77FC4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		1AFEEDB01F4400D500D77FC4 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		1AFEEDB21F4400E100D77FC4 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		E40A54D41F4412B100E898D9 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E40A54DF1F44211400E898D9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E40A54E01F44211400E898D9 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceInitializing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +69,11 @@
 		1AFEED961F43F0EA00D77FC4 /* Neon */ = {
 			isa = PBXGroup;
 			children = (
+				E40A54D61F44130700E898D9 /* shared */,
+				E40A54DC1F4420E400E898D9 /* Login */,
 				1AFEEDAD1F43F8C200D77FC4 /* Cartfile */,
 				1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */,
-				1AFEED991F43F0EA00D77FC4 /* FirstViewController.swift */,
+				E40A54D41F4412B100E898D9 /* TabBarController.swift */,
 				1AFEED9D1F43F0EA00D77FC4 /* Main.storyboard */,
 				1AFEEDA01F43F0EA00D77FC4 /* Assets.xcassets */,
 				1AFEEDA21F43F0EA00D77FC4 /* LaunchScreen.storyboard */,
@@ -81,6 +89,47 @@
 				1AFEEDB01F4400D500D77FC4 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E40A54D61F44130700E898D9 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				E40A54E31F44245D00E898D9 /* protocols */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
+		E40A54DC1F4420E400E898D9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E40A54DD1F4420E400E898D9 /* controllers */,
+				E40A54DE1F4420E400E898D9 /* views */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E40A54DD1F4420E400E898D9 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E40A54DF1F44211400E898D9 /* LoginViewController.swift */,
+				E40A54E01F44211400E898D9 /* LoginViewController.xib */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		E40A54DE1F4420E400E898D9 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		E40A54E31F44245D00E898D9 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */,
+			);
+			path = protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40A54E21F44211400E898D9 /* LoginViewController.xib in Resources */,
 				1AFEEDA41F43F0EA00D77FC4 /* LaunchScreen.storyboard in Resources */,
 				1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */,
 				1AFEEDAE1F43F8C200D77FC4 /* Cartfile in Resources */,
@@ -178,8 +228,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
+				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
 				1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */,
-				1AFEED9A1F43F0EA00D77FC4 /* FirstViewController.swift in Sources */,
+				E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
