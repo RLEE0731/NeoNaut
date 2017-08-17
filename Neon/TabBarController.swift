@@ -43,8 +43,13 @@ class TabBarController: UITabBarController
         
         let settings = SettingsViewController.loadFromNib()
         settings.tabBarItem.image = settings.tabBarImage
-        
-        self.viewControllers = [overview, history, settings]
+
+        self.viewControllers =
+            [
+                UINavigationController(rootViewController: overview),
+                UINavigationController(rootViewController: history),
+                UINavigationController(rootViewController: settings)
+        ]
     }
 }
 
