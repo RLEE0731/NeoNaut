@@ -20,11 +20,12 @@
 		E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */; };
 		E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54EF1F442DA200E898D9 /* OverviewViewController.swift */; };
 		E40A54F21F442DC900E898D9 /* OverviewStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40A54F11F442DC900E898D9 /* OverviewStory.storyboard */; };
-		E40A54F61F442E9E00E898D9 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54F51F442E9E00E898D9 /* UIStoryboardExtension.swift */; };
 		E40A54F81F442F9000E898D9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54F71F442F9000E898D9 /* HistoryViewController.swift */; };
 		E40A54FA1F442FFB00E898D9 /* HistoryStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40A54F91F442FFB00E898D9 /* HistoryStory.storyboard */; };
 		E40A54FC1F44318800E898D9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A54FB1F44318800E898D9 /* SettingsViewController.swift */; };
 		E40A54FE1F44319200E898D9 /* SettingsStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40A54FD1F44319200E898D9 /* SettingsStory.storyboard */; };
+		E4532BDA1F46428A00368024 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */; };
+		E4532BDE1F4642DB00368024 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,11 +44,12 @@
 		E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceInitializing.swift; sourceTree = "<group>"; };
 		E40A54EF1F442DA200E898D9 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		E40A54F11F442DC900E898D9 /* OverviewStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OverviewStory.storyboard; sourceTree = "<group>"; };
-		E40A54F51F442E9E00E898D9 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 		E40A54F71F442F9000E898D9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		E40A54F91F442FFB00E898D9 /* HistoryStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryStory.storyboard; sourceTree = "<group>"; };
 		E40A54FB1F44318800E898D9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E40A54FD1F44319200E898D9 /* SettingsStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStory.storyboard; sourceTree = "<group>"; };
+		E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,8 @@
 		E40A54D61F44130700E898D9 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				E4532BD81F46427D00368024 /* extensions */,
 				E40A54E31F44245D00E898D9 /* protocols */,
-				E40A54F51F442E9E00E898D9 /* UIStoryboardExtension.swift */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -225,6 +227,15 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		E4532BD81F46427D00368024 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */,
+				E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,7 +269,7 @@
 				TargetAttributes = {
 					1AFEED931F43F0EA00D77FC4 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 3SQ52PEWA4;
+						DevelopmentTeam = RR7LHRWTSU;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -326,11 +337,12 @@
 			files = (
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
+				E4532BDE1F4642DB00368024 /* UIStoryboardExtension.swift in Sources */,
 				E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */,
 				1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */,
 				E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */,
+				E4532BDA1F46428A00368024 /* UIAlertControllerExtension.swift in Sources */,
 				E40A54F81F442F9000E898D9 /* HistoryViewController.swift in Sources */,
-				E40A54F61F442E9E00E898D9 /* UIStoryboardExtension.swift in Sources */,
 				E40A54FC1F44318800E898D9 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,7 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3SQ52PEWA4;
+				DEVELOPMENT_TEAM = RR7LHRWTSU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -469,7 +481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3SQ52PEWA4;
+				DEVELOPMENT_TEAM = RR7LHRWTSU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

@@ -10,6 +10,10 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
+    var tabBarImage: UIImage?
+    { return #imageLiteral(resourceName: "donut-large") }
+    
+    
     static func loadFromNib() -> OverviewViewController
     {
         let name = String(describing: self)

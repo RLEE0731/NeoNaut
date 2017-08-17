@@ -35,16 +35,26 @@ class TabBarController: UITabBarController
     
     func setupControllers()
     {
+        let overview = OverviewViewController.loadFromNib()
+        overview.tabBarItem.image = overview.tabBarImage
+        
+        let history = HistoryViewController.loadFromNib()
+        history.tabBarItem.image = history.tabBarImage
+        
+        let settings = SettingsViewController.loadFromNib()
+        settings.tabBarItem.image = settings.tabBarImage
+
         self.viewControllers =
             [
-                OverviewViewController.loadFromNib(),
-                HistoryViewController.loadFromNib(),
-                SettingsViewController.loadFromNib()
-            ]
+                UINavigationController(rootViewController: overview),
+                UINavigationController(rootViewController: history),
+                UINavigationController(rootViewController: settings)
+        ]
     }
 }
 
 
+//MARK: - Delegate: login
 extension TabBarController: LoginViewControllerDelegate
 {
     func loginViewController(controller: LoginViewController, didLogin: Bool)

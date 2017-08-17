@@ -17,6 +17,7 @@ protocol LoginViewControllerDelegate: class
 
 final class LoginViewController: UIViewController, InterfaceInitializing
 {
+
     weak var delegate: LoginViewControllerDelegate?
     
     

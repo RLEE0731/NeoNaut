@@ -12,19 +12,26 @@ import UIKit
 protocol InterfaceInitializing
 {
     static func loadFromNib() -> Self
+    var tabBarImage: UIImage? { get }
 }
 
 
 extension InterfaceInitializing where Self: UIViewController
 {
+    var tabBarImage: UIImage?
+    { return nil }
+    
+    
     static func loadFromNib() -> Self
     {
         return self._genericLoadFromNib()
     }
     
-    static private func _genericLoadFromNib<T: UIViewController>() -> T
+    
+    static private func _genericLoadFromNib<T>() -> T where T: UIViewController
     {
         let nibname = String(describing: T.self)
-        return T(nibName: nibname, bundle: nil)
+        let allocated = T(nibName: nibname, bundle: nil)
+        return allocated
     }
 }
