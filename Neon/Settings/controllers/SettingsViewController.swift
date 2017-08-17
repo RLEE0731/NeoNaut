@@ -10,6 +10,10 @@ import UIKit
 
 final class SettingsViewController: UIViewController, InterfaceInitializing
 {
+    var tabBarImage: UIImage?
+    { return #imageLiteral(resourceName: "history") }
+    
+    
     static func loadFromNib() -> SettingsViewController
     {
         let name = String(describing: self)
