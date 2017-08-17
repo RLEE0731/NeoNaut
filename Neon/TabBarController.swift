@@ -59,22 +59,3 @@ extension TabBarController: LoginViewControllerDelegate
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-
-//MARK: - Shake handler
-extension TabBarController
-{
-    override var canBecomeFirstResponder: Bool
-    { return true }
-    
-    
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?)
-    {
-        guard motion == .motionShake else
-        { return }
-        
-        // detected shake, bring up debug
-        let alert = UIAlertController(title: "What's shakin?", message: nil, cancel: "OK", preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-    }
-}
