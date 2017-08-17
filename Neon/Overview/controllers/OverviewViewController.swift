@@ -10,8 +10,13 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
+    @IBOutlet weak var refreshButton: UIBarButtonItem?
+    
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
+
+    /// Stores the public Neo address
+    var publicAddress: String = ""
     
     
     static func loadFromNib() -> OverviewViewController
@@ -23,8 +28,11 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        self.title = "Overview"
+        self.title = NSLocalizedString("Overview", comment: "overview")
     }
+    
+    
 }
