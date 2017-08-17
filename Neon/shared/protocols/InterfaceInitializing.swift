@@ -24,15 +24,14 @@ extension InterfaceInitializing where Self: UIViewController
     
     static func loadFromNib() -> Self
     {
-        let loaded = self._genericLoadFromNib()
-//        loaded.tabBarItem.image = loaded.tabBarImage
-        return loaded
+        return self._genericLoadFromNib()
     }
     
     
     static private func _genericLoadFromNib<T>() -> T where T: UIViewController
     {
         let nibname = String(describing: T.self)
-        return T(nibName: nibname, bundle: nil)
+        let allocated = T(nibName: nibname, bundle: nil)
+        return allocated
     }
 }

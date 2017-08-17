@@ -11,7 +11,7 @@ import UIKit
 final class SettingsViewController: UIViewController, InterfaceInitializing
 {
     var tabBarImage: UIImage?
-    { return #imageLiteral(resourceName: "history") }
+    { return #imageLiteral(resourceName: "settings") }
     
     
     static func loadFromNib() -> SettingsViewController
