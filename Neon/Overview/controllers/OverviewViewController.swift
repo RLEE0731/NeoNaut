@@ -11,12 +11,24 @@ import UIKit
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
     @IBOutlet weak var refreshButton: UIBarButtonItem?
+    @IBOutlet weak var qrImageView: UIImageView?
+    
     
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
 
     /// Stores the public Neo address
-    var publicAddress: String = ""
+    var publicAddress: String = "ASWQXXFJcrWzXzAGA3vDBNA5SX6WtjqM95"
+    {
+        didSet
+        {
+            guard publicAddress.characters.count > 0 else
+            {
+                let filter = CIFilter(name: "QRGenerator")
+                
+            }
+        }
+    }
     
     
     static func loadFromNib() -> OverviewViewController
