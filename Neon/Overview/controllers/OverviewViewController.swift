@@ -10,9 +10,12 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
+    //MARK: - UI -
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
     
+    //MARK: - Properties -
+    private var wallet:Wallet?
     
     static func loadFromNib() -> OverviewViewController
     {
@@ -22,10 +25,26 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
         return controller
     }
     
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.title = "Overview"
+    }
+    
+    // Loads the wallet info for the given public address
+    private func loadWallet(forAddress address:String)
+    {
+        weak var weakself = self
+        NeonLightWalletDB.shared.getWallet(
+            forAddress: address,
+            successBlock:
+            {(wallet) in
+                weakself?.wallet = wallet
+            },
+            failureBlock:
+            {(error) in
+                //TODO: stuff here
+            }
+        )
     }
 }
