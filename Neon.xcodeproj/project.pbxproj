@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A7435791F47DB0300325567 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435781F47DB0300325567 /* Resource.swift */; };
 		1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */; };
 		1AFEED9F1F43F0EA00D77FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEED9D1F43F0EA00D77FC4 /* Main.storyboard */; };
 		1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEEDA01F43F0EA00D77FC4 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A7435781F47DB0300325567 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		1AFEED941F43F0EA00D77FC4 /* Neon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AFEED9E1F43F0EA00D77FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A7435771F447A4F00325567 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A7435781F47DB0300325567 /* Resource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1AFEED8B1F43F0EA00D77FC4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 		1AFEED961F43F0EA00D77FC4 /* Neon */ = {
 			isa = PBXGroup;
 			children = (
+				1A7435771F447A4F00325567 /* Models */,
 				E40A54D61F44130700E898D9 /* shared */,
 				E40A54DC1F4420E400E898D9 /* Login */,
 				E40A54E61F442D6200E898D9 /* History */,
@@ -324,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7435791F47DB0300325567 /* Resource.swift in Sources */,
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
 				E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */,
