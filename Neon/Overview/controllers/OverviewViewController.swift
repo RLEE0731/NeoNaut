@@ -23,7 +23,7 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     {
         didSet
         {
-            guard publicAddress.characters.count > 0 else
+            if publicAddress.characters.count > 0
             {
                 let filter = CIFilter(name: "QRGenerator")
                 
@@ -31,9 +31,9 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
         }
     }
     
-    
     //MARK: - Properties -
     private var wallet:Wallet?
+    
     
     static func loadFromNib() -> OverviewViewController
     {
