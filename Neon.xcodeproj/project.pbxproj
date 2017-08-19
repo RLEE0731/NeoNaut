@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1A7435791F47DB0300325567 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435781F47DB0300325567 /* Resource.swift */; };
+		1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357A1F47DBE300325567 /* AutoMapping.swift */; };
+		1A74357D1F47E32000325567 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357C1F47E32000325567 /* Transaction.swift */; };
+		1A74357F1F47E65B00325567 /* Neo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357E1F47E65B00325567 /* Neo.swift */; };
+		1A7435811F47EC7A00325567 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7435801F47EC7A00325567 /* AlamofireObjectMapper.framework */; };
+		1A7435831F47ED0500325567 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435821F47ED0500325567 /* Wallet.swift */; };
+		1A7435861F47F09C00325567 /* EnumStringTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435851F47F09C00325567 /* EnumStringTransform.swift */; };
+		1A7435881F47F37100325567 /* Gas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435871F47F37100325567 /* Gas.swift */; };
+		1A74358B1F47F55000325567 /* NeonLightWalletDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74358A1F47F55000325567 /* NeonLightWalletDB.swift */; };
 		1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */; };
 		1AFEED9F1F43F0EA00D77FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEED9D1F43F0EA00D77FC4 /* Main.storyboard */; };
 		1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFEEDA01F43F0EA00D77FC4 /* Assets.xcassets */; };
@@ -30,6 +38,14 @@
 
 /* Begin PBXFileReference section */
 		1A7435781F47DB0300325567 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		1A74357A1F47DBE300325567 /* AutoMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapping.swift; sourceTree = "<group>"; };
+		1A74357C1F47E32000325567 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1A74357E1F47E65B00325567 /* Neo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neo.swift; sourceTree = "<group>"; };
+		1A7435801F47EC7A00325567 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
+		1A7435821F47ED0500325567 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		1A7435851F47F09C00325567 /* EnumStringTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnumStringTransform.swift; sourceTree = "<group>"; };
+		1A7435871F47F37100325567 /* Gas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gas.swift; sourceTree = "<group>"; };
+		1A74358A1F47F55000325567 /* NeonLightWalletDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeonLightWalletDB.swift; sourceTree = "<group>"; };
 		1AFEED941F43F0EA00D77FC4 /* Neon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AFEED971F43F0EA00D77FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AFEED9E1F43F0EA00D77FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7435811F47EC7A00325567 /* AlamofireObjectMapper.framework in Frameworks */,
 				1AFEEDB31F4400E100D77FC4 /* ObjectMapper.framework in Frameworks */,
 				1AFEEDB11F4400D500D77FC4 /* Alamofire.framework in Frameworks */,
 			);
@@ -68,9 +85,31 @@
 		1A7435771F447A4F00325567 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1A7435841F47F06000325567 /* Transforms */,
 				1A7435781F47DB0300325567 /* Resource.swift */,
+				1A74357A1F47DBE300325567 /* AutoMapping.swift */,
+				1A74357C1F47E32000325567 /* Transaction.swift */,
+				1A74357E1F47E65B00325567 /* Neo.swift */,
+				1A7435871F47F37100325567 /* Gas.swift */,
+				1A7435821F47ED0500325567 /* Wallet.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1A7435841F47F06000325567 /* Transforms */ = {
+			isa = PBXGroup;
+			children = (
+				1A7435851F47F09C00325567 /* EnumStringTransform.swift */,
+			);
+			path = Transforms;
+			sourceTree = "<group>";
+		};
+		1A7435891F47F51200325567 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1A74358A1F47F55000325567 /* NeonLightWalletDB.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		1AFEED8B1F43F0EA00D77FC4 = {
@@ -93,6 +132,7 @@
 		1AFEED961F43F0EA00D77FC4 /* Neon */ = {
 			isa = PBXGroup;
 			children = (
+				1A7435891F47F51200325567 /* Network */,
 				1A7435771F447A4F00325567 /* Models */,
 				E40A54D61F44130700E898D9 /* shared */,
 				E40A54DC1F4420E400E898D9 /* Login */,
@@ -113,6 +153,7 @@
 		1AFEEDAF1F4400D500D77FC4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A7435801F47EC7A00325567 /* AlamofireObjectMapper.framework */,
 				1AFEEDB21F4400E100D77FC4 /* ObjectMapper.framework */,
 				1AFEEDB01F4400D500D77FC4 /* Alamofire.framework */,
 			);
@@ -319,10 +360,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireObjectMapper.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ObjectMapper.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AlamofireObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -335,15 +378,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A74357D1F47E32000325567 /* Transaction.swift in Sources */,
 				1A7435791F47DB0300325567 /* Resource.swift in Sources */,
+				1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */,
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
+				1A7435861F47F09C00325567 /* EnumStringTransform.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
+				1A7435831F47ED0500325567 /* Wallet.swift in Sources */,
 				E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */,
 				1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */,
+				1A74358B1F47F55000325567 /* NeonLightWalletDB.swift in Sources */,
 				E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */,
 				E40A54F81F442F9000E898D9 /* HistoryViewController.swift in Sources */,
 				E40A54F61F442E9E00E898D9 /* UIStoryboardExtension.swift in Sources */,
+				1A74357F1F47E65B00325567 /* Neo.swift in Sources */,
 				E40A54FC1F44318800E898D9 /* SettingsViewController.swift in Sources */,
+				1A7435881F47F37100325567 /* Gas.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
