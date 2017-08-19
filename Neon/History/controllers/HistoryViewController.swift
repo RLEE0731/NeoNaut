@@ -11,6 +11,9 @@ import UIKit
 
 final class HistoryViewController: UIViewController, InterfaceInitializing
 {
+    var tabBarImage: UIImage?
+    { return #imageLiteral(resourceName: "history") }
+    
     static func loadFromNib() -> HistoryViewController
     {
         let name = String(describing: self)
@@ -23,7 +26,6 @@ final class HistoryViewController: UIViewController, InterfaceInitializing
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 }

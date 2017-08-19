@@ -8,8 +8,13 @@
 
 import UIKit
 
+
 final class SettingsViewController: UIViewController, InterfaceInitializing
 {
+    var tabBarImage: UIImage?
+    { return #imageLiteral(resourceName: "settings") }
+    
+    
     static func loadFromNib() -> SettingsViewController
     {
         let name = String(describing: self)
@@ -18,11 +23,30 @@ final class SettingsViewController: UIViewController, InterfaceInitializing
         return controller
     }
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
 }
+
+
+#if DEBUG
+//MARK: - Shake handler
+extension SettingsViewController
+{
+    override var canBecomeFirstResponder: Bool
+    { return true }
+    
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?)
+    {
+        guard motion == .motionShake else
+        { return }
+        
+        // detected shake, bring up debug
+        let alert = UIAlertController(title: "What's shakin?", message: nil, cancel: "OK", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+#endif
