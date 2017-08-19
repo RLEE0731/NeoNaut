@@ -1,5 +1,5 @@
 //
-//  Transaction.swift
+//  Asset.swift
 //  Neon
 //
 //  Created by James Donald on 8/18/17.
@@ -9,14 +9,14 @@
 import Foundation
 import ObjectMapper
 
-enum TransactionKeys:String
+enum AssetKeys:String
 {
     case index  = "index"
     case id     = "txid"
     case value  = "value"
 }
 
-public class Transaction: Resource
+public class Asset: Resource
 {
     public var index:NSNumber?  = nil
     public var id:String?       = nil
@@ -26,8 +26,8 @@ public class Transaction: Resource
     {
         super.mapping(map: map)
         
-        self.id     <- map[TransactionKeys.id.rawValue]
-        self.index  <- map[TransactionKeys.index.rawValue]
-        self.value  <- map[TransactionKeys.value.rawValue]
+        self.id     <- map[AssetKeys.id.rawValue]
+        self.index  <- map[AssetKeys.index.rawValue]
+        self.value  <- map[AssetKeys.value.rawValue]
     }
 }
