@@ -23,7 +23,8 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     }
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.title = "Overview"
     }
