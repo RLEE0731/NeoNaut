@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A7435791F47DB0300325567 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435781F47DB0300325567 /* Resource.swift */; };
 		1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357A1F47DBE300325567 /* AutoMapping.swift */; };
-		1A74357D1F47E32000325567 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357C1F47E32000325567 /* Transaction.swift */; };
+		1A74357D1F47E32000325567 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357C1F47E32000325567 /* Asset.swift */; };
 		1A74357F1F47E65B00325567 /* Neo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A74357E1F47E65B00325567 /* Neo.swift */; };
 		1A7435811F47EC7A00325567 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A7435801F47EC7A00325567 /* AlamofireObjectMapper.framework */; };
 		1A7435831F47ED0500325567 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7435821F47ED0500325567 /* Wallet.swift */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		1A7435781F47DB0300325567 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		1A74357A1F47DBE300325567 /* AutoMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapping.swift; sourceTree = "<group>"; };
-		1A74357C1F47E32000325567 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1A74357C1F47E32000325567 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		1A74357E1F47E65B00325567 /* Neo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Neo.swift; sourceTree = "<group>"; };
 		1A7435801F47EC7A00325567 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireObjectMapper.framework; path = Carthage/Build/iOS/AlamofireObjectMapper.framework; sourceTree = "<group>"; };
 		1A7435821F47ED0500325567 /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				1A7435841F47F06000325567 /* Transforms */,
 				1A7435781F47DB0300325567 /* Resource.swift */,
 				1A74357A1F47DBE300325567 /* AutoMapping.swift */,
-				1A74357C1F47E32000325567 /* Transaction.swift */,
+				1A74357C1F47E32000325567 /* Asset.swift */,
 				1A74357E1F47E65B00325567 /* Neo.swift */,
 				1A7435871F47F37100325567 /* Gas.swift */,
 				1A7435821F47ED0500325567 /* Wallet.swift */,
@@ -389,7 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A74357D1F47E32000325567 /* Transaction.swift in Sources */,
+				1A74357D1F47E32000325567 /* Asset.swift in Sources */,
 				1A7435791F47DB0300325567 /* Resource.swift in Sources */,
 				1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */,
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
@@ -403,7 +403,6 @@
 				E40A54E51F44245D00E898D9 /* InterfaceInitializing.swift in Sources */,
 				E4532BDA1F46428A00368024 /* UIAlertControllerExtension.swift in Sources */,
 				E40A54F81F442F9000E898D9 /* HistoryViewController.swift in Sources */,
-				E40A54F61F442E9E00E898D9 /* UIStoryboardExtension.swift in Sources */,
 				1A74357F1F47E65B00325567 /* Neo.swift in Sources */,
 				E40A54FC1F44318800E898D9 /* SettingsViewController.swift in Sources */,
 				1A7435881F47F37100325567 /* Gas.swift in Sources */,
