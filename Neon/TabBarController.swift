@@ -10,12 +10,24 @@ import UIKit
 
 class TabBarController: UITabBarController
 {
-    var isLoggedIn = false
+    var isLoggedIn: Bool
+    { return self.publicAddress.characters.count > 0 }
     
+    var publicAddress:  String  = ""
+    {
+        didSet
+        { self.overviewVC?.publicAddress = self.publicAddress }
+    }
+    
+    var historyVC:      HistoryViewController?
+    var overviewVC:     OverviewViewController?
+    var settingsVC:     SettingsViewController?
+
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.setupControllers()
     }
 
     
@@ -37,12 +49,15 @@ class TabBarController: UITabBarController
     {
         let overview = OverviewViewController.loadFromNib()
         overview.tabBarItem.image = overview.tabBarImage
+        self.overviewVC = overview
         
         let history = HistoryViewController.loadFromNib()
         history.tabBarItem.image = history.tabBarImage
+        self.historyVC = history
         
         let settings = SettingsViewController.loadFromNib()
         settings.tabBarItem.image = settings.tabBarImage
+        self.settingsVC = settings
 
         self.viewControllers =
             [
@@ -57,10 +72,9 @@ class TabBarController: UITabBarController
 //MARK: - Delegate: login
 extension TabBarController: LoginViewControllerDelegate
 {
-    func loginViewController(controller: LoginViewController, didLogin: Bool)
+    func loginViewController(controller: LoginViewController, didLoginWithPublicAddress publicAddress: String)
     {
-        self.isLoggedIn = didLogin
-        self.setupControllers()
+        self.publicAddress = publicAddress
         self.dismiss(animated: true, completion: nil)
     }
 }

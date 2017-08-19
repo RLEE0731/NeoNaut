@@ -10,12 +10,27 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
-    //MARK: - UI -
+    //MARK: - UI
+    @IBOutlet weak var refreshButton:       UIBarButtonItem?
+    @IBOutlet weak var qrImageView:         UIImageView?
+    @IBOutlet weak var publicAddressButton: UIButton?
+    
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
-    
-    //MARK: - Properties -
+
+    //MARK: - Properties
     private var wallet:Wallet?
+    
+    /// Stores the public Neo address
+    var publicAddress: String = ""
+    {
+        didSet
+        {
+            self.publicAddressButton?.setTitle(self.publicAddress, for: .normal)
+            self.qrImageView?.setImage(withQRCode: self.publicAddress)
+        }
+    }
+    
     
     static func loadFromNib() -> OverviewViewController
     {
@@ -24,12 +39,14 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
         { return OverviewViewController() }
         return controller
     }
+
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.title = "Overview"
+        self.title = NSLocalizedString("Overview", comment: "overview")
     }
+    
     
     // Loads the wallet info for the given public address
     private func loadWallet(forAddress address:String)
@@ -46,5 +63,34 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
                 //TODO: stuff here
             }
         )
+    }
+}
+
+
+//MARK: - Public address actions
+extension OverviewViewController
+{
+    @IBAction func publicAddressAction(_ sender: UIButton)
+    {
+        let options = UIAlertController(title: nil,
+                                        message: nil,
+                                        cancel: NSLocalizedString("Cancel", comment: "cancel"),
+                                        preferredStyle: .actionSheet)
+        
+        options.popoverPresentationController?.sourceView = sender
+        self.handleCopy(alert: options)
+        self.present(options, animated: true, completion: nil)
+    }
+    
+    
+    func handleCopy(alert: UIAlertController)
+    {
+        let copyAction = UIAlertAction(title: NSLocalizedString("Copy", comment: "copy"),
+                                       style: .default,
+                                       handler:
+            { [weak self] (action) in
+                UIPasteboard.general.string = self?.publicAddress
+        })
+        alert.addAction(copyAction)
     }
 }
