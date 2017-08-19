@@ -19,14 +19,37 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     { return #imageLiteral(resourceName: "donut-large") }
 
     /// Stores the public Neo address
-    var publicAddress: String = "ASWQXXFJcrWzXzAGA3vDBNA5SX6WtjqM95"
+    var publicAddress: String = ""
     {
         didSet
         {
-            if publicAddress.characters.count > 0
+            if self.publicAddress.characters.count > 0
             {
-                let filter = CIFilter(name: "QRGenerator")
+                // https://www.appcoda.com/qr-code-generator-tutorial/
+                let data = self.publicAddress.data(using: .isoLatin1, allowLossyConversion: false)
+                guard let filter = CIFilter(name: "CIQRCodeGenerator") else
+                {
+                    assertionFailure("Cannot allocate CIFilter")
+                    return
+                }
                 
+                filter.setValue(data, forKey: "inputMessage")
+                filter.setValue("Q", forKey: "inputCorrectionLevel")
+                
+                guard let qrImage = filter.outputImage else
+                {
+                    qrImageView?.image = nil
+                    return
+                }
+                
+                guard let imageViewFrame = self.qrImageView?.frame else
+                { return }
+                
+                // scaling generated CIImage to imageView's frame size
+                let scaleX = imageViewFrame.size.width / qrImage.extent.size.width
+                let scaleY = imageViewFrame.size.height / qrImage.extent.size.height
+                let resized = qrImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+                self.qrImageView?.image = UIImage(ciImage: resized)
             }
         }
     }
@@ -48,6 +71,7 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     {
         super.viewDidLoad()
         self.title = NSLocalizedString("Overview", comment: "overview")
+        self.publicAddress = "ASWQXXFJcrWzXzAGA3vDBNA5SX6WtjqM95"
     }
     
     
