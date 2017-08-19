@@ -1,5 +1,5 @@
-# neon-wallet-iOS
-Port of neon wallet to iOS
+# NeoNaut Wallet
+A of neo wallet for iOS
 
 # Installation
 Currently we use carthage for dependency managemeny in the project. 
