@@ -10,15 +10,17 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
+    //MARK: - UI
     @IBOutlet weak var refreshButton:       UIBarButtonItem?
     @IBOutlet weak var qrImageView:         UIImageView?
     @IBOutlet weak var publicAddressButton: UIButton?
     
-    
-    //MARK: - UI
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
 
+    //MARK: - Properties
+    private var wallet:Wallet?
+    
     /// Stores the public Neo address
     var publicAddress: String = ""
     {
@@ -28,10 +30,6 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
             self.qrImageView?.setImage(withQRCode: self.publicAddress)
         }
     }
-    
-    
-    //MARK: - Properties
-    private var wallet:Wallet?
     
     
     static func loadFromNib() -> OverviewViewController
@@ -47,7 +45,6 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     {
         super.viewDidLoad()
         self.title = NSLocalizedString("Overview", comment: "overview")
-        self.publicAddress = "ASWQXXFJcrWzXzAGA3vDBNA5SX6WtjqM95"
     }
     
     

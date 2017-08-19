@@ -11,7 +11,7 @@ import UIKit
 
 protocol LoginViewControllerDelegate: class
 {
-    func loginViewController(controller: LoginViewController, didLogin: Bool)
+    func loginViewController(controller: LoginViewController, didLoginWithPublicAddress publicAddress: String)
 }
 
 
@@ -24,13 +24,11 @@ final class LoginViewController: UIViewController, InterfaceInitializing
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     
     @IBAction func dismissAction(_ sender: Any)
     {
-        self.delegate?.loginViewController(controller: self, didLogin: true)
+        self.delegate?.loginViewController(controller: self, didLoginWithPublicAddress: "helloworld123")
     }
 }
