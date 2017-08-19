@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lH7-HO-gIU" userLabel="main Stack View">
-                                <rect key="frame" x="10" y="74" width="355" height="197"/>
+                                <rect key="frame" x="10" y="74" width="355" height="353"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Public Neo Address:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgX-5c-8br">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="17"/>
@@ -38,6 +38,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="ASWQXXFJcrWzXzAGA3vDBNA5SX6WtjqM95"/>
+                                        <connections>
+                                            <action selector="publicAddressAction:" destination="n7H-Fp-GJ1" eventType="touchUpInside" id="hbW-Si-Wwq"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kwy-6p-A0Y">
                                         <rect key="frame" x="0.0" y="52" width="355" height="111"/>
@@ -103,33 +106,36 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFl-qk-JzN">
-                                        <rect key="frame" x="0.0" y="168" width="355" height="29"/>
+                                        <rect key="frame" x="0.0" y="168" width="355" height="185"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Claim GAS"/>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ej-Sm-TF4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ej-Sm-TF4" userLabel="QR Image View">
                                 <rect key="frame" x="87" y="447" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="1Zq-XZ-RKW"/>
+                                    <constraint firstAttribute="height" priority="999" constant="200" id="1Zq-XZ-RKW"/>
                                     <constraint firstAttribute="width" secondItem="8Ej-Sm-TF4" secondAttribute="height" multiplier="1:1" id="LbK-6M-TYM"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AYX-Ul-IBS" firstAttribute="top" secondItem="8Ej-Sm-TF4" secondAttribute="bottom" constant="20" id="8Sk-If-sDn"/>
                             <constraint firstItem="lH7-HO-gIU" firstAttribute="leading" secondItem="gQQ-7o-XoK" secondAttribute="leading" constant="10" id="O3S-bk-yR4"/>
                             <constraint firstItem="lH7-HO-gIU" firstAttribute="top" secondItem="d9e-KA-h1v" secondAttribute="bottom" constant="10" id="PjW-nn-mYs"/>
                             <constraint firstItem="AYX-Ul-IBS" firstAttribute="top" secondItem="8Ej-Sm-TF4" secondAttribute="bottom" constant="20" id="diD-Lo-fEw"/>
+                            <constraint firstItem="8Ej-Sm-TF4" firstAttribute="centerX" secondItem="gQQ-7o-XoK" secondAttribute="centerX" id="isa-Zs-qz5"/>
+                            <constraint firstItem="8Ej-Sm-TF4" firstAttribute="top" secondItem="lH7-HO-gIU" secondAttribute="bottom" constant="20" id="lEQ-pL-PUb"/>
                             <constraint firstAttribute="trailing" secondItem="lH7-HO-gIU" secondAttribute="trailing" constant="10" id="lWG-Q4-DSP"/>
-                            <constraint firstItem="AYX-Ul-IBS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="lH7-HO-gIU" secondAttribute="bottom" constant="10" id="w9T-46-vUQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="c6U-I6-aE3">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="QYc-hT-mhm"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="publicAddressButton" destination="YMk-VU-ntA" id="3GU-A7-Y72"/>
                         <outlet property="qrImageView" destination="8Ej-Sm-TF4" id="pB9-M9-W0M"/>
                         <outlet property="refreshButton" destination="QYc-hT-mhm" id="cKN-Zu-UgH"/>
                     </connections>

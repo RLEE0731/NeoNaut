@@ -10,11 +10,12 @@ import UIKit
 
 final class OverviewViewController: UIViewController, InterfaceInitializing
 {
-    @IBOutlet weak var refreshButton: UIBarButtonItem?
-    @IBOutlet weak var qrImageView: UIImageView?
+    @IBOutlet weak var refreshButton:       UIBarButtonItem?
+    @IBOutlet weak var qrImageView:         UIImageView?
+    @IBOutlet weak var publicAddressButton: UIButton?
     
     
-    //MARK: - UI -
+    //MARK: - UI
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
 
@@ -23,38 +24,13 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     {
         didSet
         {
-            if self.publicAddress.characters.count > 0
-            {
-                // https://www.appcoda.com/qr-code-generator-tutorial/
-                let data = self.publicAddress.data(using: .isoLatin1, allowLossyConversion: false)
-                guard let filter = CIFilter(name: "CIQRCodeGenerator") else
-                {
-                    assertionFailure("Cannot allocate CIFilter")
-                    return
-                }
-                
-                filter.setValue(data, forKey: "inputMessage")
-                filter.setValue("Q", forKey: "inputCorrectionLevel")
-                
-                guard let qrImage = filter.outputImage else
-                {
-                    qrImageView?.image = nil
-                    return
-                }
-                
-                guard let imageViewFrame = self.qrImageView?.frame else
-                { return }
-                
-                // scaling generated CIImage to imageView's frame size
-                let scaleX = imageViewFrame.size.width / qrImage.extent.size.width
-                let scaleY = imageViewFrame.size.height / qrImage.extent.size.height
-                let resized = qrImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
-                self.qrImageView?.image = UIImage(ciImage: resized)
-            }
+            self.publicAddressButton?.setTitle(self.publicAddress, for: .normal)
+            self.qrImageView?.setImage(withQRCode: self.publicAddress)
         }
     }
     
-    //MARK: - Properties -
+    
+    //MARK: - Properties
     private var wallet:Wallet?
     
     
@@ -90,5 +66,34 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
                 //TODO: stuff here
             }
         )
+    }
+}
+
+
+//MARK: - Public address actions
+extension OverviewViewController
+{
+    @IBAction func publicAddressAction(_ sender: UIButton)
+    {
+        let options = UIAlertController(title: nil,
+                                        message: nil,
+                                        cancel: NSLocalizedString("Cancel", comment: "cancel"),
+                                        preferredStyle: .actionSheet)
+        
+        options.popoverPresentationController?.sourceView = sender
+        self.handleCopy(alert: options)
+        self.present(options, animated: true, completion: nil)
+    }
+    
+    
+    func handleCopy(alert: UIAlertController)
+    {
+        let copyAction = UIAlertAction(title: NSLocalizedString("Copy", comment: "copy"),
+                                       style: .default,
+                                       handler:
+            { [weak self] (action) in
+                UIPasteboard.general.string = self?.publicAddress
+        })
+        alert.addAction(copyAction)
     }
 }
