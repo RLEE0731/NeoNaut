@@ -56,15 +56,53 @@ public class NeonLightWalletDB: NSObject
     
     /// Gets the wallet for the given public address
     /// - parameter address: The public address of which to retrieve the wallet
-    /// - parameter successBlock: The block which is called upon response of success
-    public func getWallet(forAddress address:String, successBlock:((_ wallet:Wallet?) -> Void)? = nil)
+    /// - parameter successBlock: The block which is called upon a successful response
+    public func getWallet(forAddress address:String,
+        successBlock:((_ wallet:Wallet?) -> Void)? = nil,
+        failureBlock:((_ err:Error?) -> Void)? = nil)
     {
         let urlString   = self.build(endpoint: "address/balance/\(address)")
-        let request     = Alamofire.request(urlString)
-            .responseObject{(response: DataResponse<Wallet>) in
+        let request     = Alamofire
+            .request(urlString)
+            .responseObject
+            {(response: DataResponse<Wallet>) in
+                // check for errors
+                guard response.result.error == nil else
+                {
+                    failureBlock?(response.result.error)
+                    return
+                }
+                
+                // parse the wallet data
                 let balanceResponse = response.result.value
                 successBlock?(balanceResponse)
-        }
+            }
+        debugPrint(request)
+    }
+    
+    /// Gets the history of transcations which have affected the given address
+    /// - parameter address: The public address of which to retrieve transaction history
+    /// - parameter successBlock: The block which is called upon a successful response
+    public func getTransactions(forAddress address:String,
+        successBlock:((_ transactions:Array<Transaction>) -> Void)? = nil,
+        failureBlock:((_ err:Error?) -> Void)? = nil)
+    {
+        let urlString   = self.build(endpoint: "address/history/\(address)")
+        let request     = Alamofire
+            .request(urlString)
+            .responseObject
+            {(response: DataResponse<TransactionHistory>) in
+                // check for errors
+                guard response.result.error == nil else
+                {
+                    failureBlock?(response.result.error)
+                    return
+                }
+                
+                // parse the transactions
+                let transactions = response.result.value?.transactions ?? []
+                successBlock?(transactions)
+            }
         debugPrint(request)
     }
 }

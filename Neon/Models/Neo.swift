@@ -17,8 +17,8 @@ enum NeoKeys:String
 
 public class Neo:Resource
 {
-    public var balance:NSNumber?    = nil
-    public var unspentAssets        = Array<Asset>()
+    private(set) public var balance:NSNumber?    = nil
+    private(set) public var unspentAssets        = Array<Asset>()
     
     public override func mapping(map: Map)
     {

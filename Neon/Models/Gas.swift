@@ -17,8 +17,8 @@ enum GasKeys:String
 
 public class Gas:Resource
 {
-    public var balance:NSNumber?    = nil
-    public var unspentTransactions  = Array<Asset>()
+    private(set) public var balance:NSNumber?    = nil
+    private(set) public var unspentTransactions  = Array<Asset>()
     
     public override func mapping(map: Map)
     {

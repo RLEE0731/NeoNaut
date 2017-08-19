@@ -18,9 +18,9 @@ enum AssetKeys:String
 
 public class Asset: Resource
 {
-    public var index:NSNumber?  = nil
-    public var id:String?       = nil
-    public var value:NSNumber?  = nil
+    private(set) public var index:NSNumber?  = nil
+    private(set) public var id:String?       = nil
+    private(set) public var value:NSNumber?  = nil
     
     public override func mapping(map: Map)
     {

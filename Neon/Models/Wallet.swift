@@ -19,10 +19,8 @@ enum WalletKeys:String
 
 public class Wallet: Resource
 {
-    public var neo:Neo?         = nil
-    public var gas:Gas?         = nil
-    public var address:String?  = nil
-    public var net:Net?         = nil
+    private(set) public var neo:Neo?         = nil
+    private(set) public var gas:Gas?         = nil
     
     public override func mapping(map: Map)
     {
@@ -30,7 +28,5 @@ public class Wallet: Resource
         
         self.neo        <- map[WalletKeys.neo.rawValue]
         self.gas        <- map[WalletKeys.gas.rawValue]
-        self.address    <- map[WalletKeys.address.rawValue]
-        self.net        <- (map[WalletKeys.net.rawValue], EnumStringTransform())
     }
 }
