@@ -14,6 +14,7 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     @IBOutlet weak var qrImageView: UIImageView?
     
     
+    //MARK: - UI -
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
 
@@ -31,6 +32,9 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     }
     
     
+    //MARK: - Properties -
+    private var wallet:Wallet?
+    
     static func loadFromNib() -> OverviewViewController
     {
         let name = String(describing: self)
@@ -38,7 +42,7 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
         { return OverviewViewController() }
         return controller
     }
-    
+
     
     override func viewDidLoad()
     {
@@ -47,4 +51,20 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     }
     
     
+    // Loads the wallet info for the given public address
+    private func loadWallet(forAddress address:String)
+    {
+        weak var weakself = self
+        NeonLightWalletDB.shared.getWallet(
+            forAddress: address,
+            successBlock:
+            {(wallet) in
+                weakself?.wallet = wallet
+            },
+            failureBlock:
+            {(error) in
+                //TODO: stuff here
+            }
+        )
+    }
 }

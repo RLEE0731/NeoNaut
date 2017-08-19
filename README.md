@@ -1,5 +1,5 @@
-# neon-wallet-iOS
-Port of neon wallet to iOS
+# NeoNaut Wallet
+A of neo wallet for iOS
 
 # Installation
 Currently we use carthage for dependency managemeny in the project. 
@@ -9,4 +9,4 @@ Currently we use carthage for dependency managemeny in the project.
 
 # Light Wallet API
 Currently using the CoZ light wallet api for backend service connections to the NEO blockchain:
-https://github.com/CityOfZion/neo-api-js
+https://github.com/CityOfZion/neon-wallet-db

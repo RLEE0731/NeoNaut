@@ -11,8 +11,12 @@ import UIKit
 
 final class HistoryViewController: UIViewController, InterfaceInitializing
 {
+    //MARK: - UI -
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "history") }
+    
+    //MARK: - Properties -
+    private var transactions:Array<Transaction> = []
     
     static func loadFromNib() -> HistoryViewController
     {
@@ -27,5 +31,22 @@ final class HistoryViewController: UIViewController, InterfaceInitializing
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    /// Loads the list of transactions for the given address
+    private func loadTransactions(forAddress address:String)
+    {
+        weak var weakself = self
+        NeonLightWalletDB.shared.getTransactions(
+            forAddress: address,
+            successBlock:
+            {(transactions) in
+                weakself?.transactions = transactions
+            },
+            failureBlock:
+            {(error) in
+                // do something here lol
+            }
+        )
     }
 }
