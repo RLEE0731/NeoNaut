@@ -51,7 +51,8 @@
                                         <constraint firstAttribute="height" priority="999" constant="35" id="GL1-5P-3cm"/>
                                         <constraint firstAttribute="width" priority="999" constant="35" id="NXM-YF-Hf5"/>
                                     </constraints>
-                                    <state key="normal" image="camera"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" image="qr-code"/>
                                     <connections>
                                         <action selector="cameraAction:" destination="-1" eventType="touchUpInside" id="vCa-xq-5ZQ"/>
                                     </connections>
@@ -107,6 +108,6 @@
         </view>
     </objects>
     <resources>
-        <image name="camera" width="24" height="24"/>
+        <image name="qr-code" width="35" height="35"/>
     </resources>
 </document>
