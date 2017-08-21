@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Neon" customModuleProvider="target">
             <connections>
+                <outlet property="cameraButton" destination="el3-7s-TKl" id="MSj-9Z-Lcf"/>
+                <outlet property="loginButton" destination="inM-1g-rsI" id="LgT-gj-gXo"/>
+                <outlet property="logoLabel" destination="UPe-OU-cow" id="EBV-b5-dSl"/>
+                <outlet property="newButton" destination="h7Z-ft-CE5" id="1pW-HE-ivX"/>
+                <outlet property="textField" destination="puC-5o-xeP" id="tVC-AQ-ziT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,21 +24,89 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1RF-Q7-xRq">
-                    <rect key="frame" x="58" y="318" width="258" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="Dismiss"/>
-                    <connections>
-                        <action selector="dismissAction:" destination="-1" eventType="touchUpInside" id="pO7-3y-z34"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dlX-14-XGc">
+                    <rect key="frame" x="20" y="84" width="335" height="144"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPe-OU-cow">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="S74-Pd-U5n" userLabel="textfield Stack View">
+                            <rect key="frame" x="0.0" y="44" width="335" height="35"/>
+                            <subviews>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your private key here (WIF)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="puC-5o-xeP">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="35"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="mj5-QL-h2I"/>
+                                    </connections>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="el3-7s-TKl">
+                                    <rect key="frame" x="300" y="0.0" width="35" height="35"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="999" constant="35" id="GL1-5P-3cm"/>
+                                        <constraint firstAttribute="width" priority="999" constant="35" id="NXM-YF-Hf5"/>
+                                    </constraints>
+                                    <state key="normal" image="camera"/>
+                                    <connections>
+                                        <action selector="cameraAction:" destination="-1" eventType="touchUpInside" id="vCa-xq-5ZQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aSW-4q-YXW">
+                            <rect key="frame" x="0.0" y="99" width="335" height="45"/>
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inM-1g-rsI">
+                                    <rect key="frame" x="0.0" y="0.0" width="162.5" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="999" constant="45" id="XQT-Ha-auW"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="Login"/>
+                                    <connections>
+                                        <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="ZZe-yi-Ekp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7Z-ft-CE5">
+                                    <rect key="frame" x="172.5" y="0.0" width="162.5" height="45"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="New Wallet"/>
+                                    <connections>
+                                        <action selector="newAction:" destination="-1" eventType="touchUpInside" id="hn3-kr-8uN"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="h7Z-ft-CE5" firstAttribute="height" secondItem="inM-1g-rsI" secondAttribute="height" priority="999" id="ptA-yU-Yoc"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kSn-7t-rfQ">
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <items>
+                        <navigationItem title="Login" id="G6J-kZ-2Ul"/>
+                    </items>
+                </navigationBar>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="1RF-Q7-xRq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="TIO-o8-hqo"/>
-                <constraint firstItem="1RF-Q7-xRq" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="avT-yV-gvl"/>
+                <constraint firstItem="kSn-7t-rfQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="5Pl-Of-3Ny"/>
+                <constraint firstAttribute="trailing" secondItem="dlX-14-XGc" secondAttribute="trailing" constant="20" id="Cf9-Gq-aTm"/>
+                <constraint firstItem="dlX-14-XGc" firstAttribute="top" secondItem="kSn-7t-rfQ" secondAttribute="bottom" constant="20" id="Iht-oH-3ze"/>
+                <constraint firstItem="kSn-7t-rfQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hn0-Y7-hx2"/>
+                <constraint firstItem="dlX-14-XGc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="qxo-Mz-JDR"/>
+                <constraint firstAttribute="trailing" secondItem="kSn-7t-rfQ" secondAttribute="trailing" id="xBB-ZX-kbE"/>
             </constraints>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="camera" width="24" height="24"/>
+    </resources>
 </document>

@@ -9,10 +9,17 @@
 import UIKit
 
 
+/** 
+ Handling Xib/Storyboard-based allocations
+ */
 protocol InterfaceInitializing
 {
-    static func loadFromNib() -> Self
     var tabBarImage: UIImage? { get }
+    
+    static func loadFromNib() -> Self
+    
+    /// Used to handle post-creation UI setup (default color, localization, default/empty values)
+    func resetUI()
 }
 
 
@@ -34,4 +41,8 @@ extension InterfaceInitializing where Self: UIViewController
         let allocated = T(nibName: nibname, bundle: nil)
         return allocated
     }
+    
+    
+    func resetUI()
+    {}
 }

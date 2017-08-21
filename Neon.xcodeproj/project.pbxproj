@@ -36,6 +36,9 @@
 		E40A54FE1F44319200E898D9 /* SettingsStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40A54FD1F44319200E898D9 /* SettingsStory.storyboard */; };
 		E4532BDA1F46428A00368024 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */; };
 		E4532BDE1F4642DB00368024 /* UIStoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */; };
+		E480AE501F49180400590E97 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480AE4F1F49180400590E97 /* UIColorExtension.swift */; };
+		E480AE541F494B1400590E97 /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480AE521F494B1400590E97 /* QRReaderViewController.swift */; };
+		E480AE551F494B1400590E97 /* QRReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E480AE531F494B1400590E97 /* QRReaderViewController.xib */; };
 		E4AC7B471F48F0A000553E09 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +74,9 @@
 		E40A54FD1F44319200E898D9 /* SettingsStory.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsStory.storyboard; sourceTree = "<group>"; };
 		E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtension.swift; sourceTree = "<group>"; };
+		E480AE4F1F49180400590E97 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E480AE521F494B1400590E97 /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
+		E480AE531F494B1400590E97 /* QRReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRReaderViewController.xib; sourceTree = "<group>"; };
 		E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +176,7 @@
 		E40A54D61F44130700E898D9 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				E480AE511F494AFE00590E97 /* controllers */,
 				E4532BD81F46427D00368024 /* extensions */,
 				E40A54E31F44245D00E898D9 /* protocols */,
 			);
@@ -290,8 +297,18 @@
 				E4532BD91F46428A00368024 /* UIAlertControllerExtension.swift */,
 				E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */,
 				E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */,
+				E480AE4F1F49180400590E97 /* UIColorExtension.swift */,
 			);
 			path = extensions;
+			sourceTree = "<group>";
+		};
+		E480AE511F494AFE00590E97 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E480AE521F494B1400590E97 /* QRReaderViewController.swift */,
+				E480AE531F494B1400590E97 /* QRReaderViewController.xib */,
+			);
+			path = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +379,7 @@
 				1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */,
 				E40A54F21F442DC900E898D9 /* OverviewStory.storyboard in Resources */,
 				1AFEEDAE1F43F8C200D77FC4 /* Cartfile in Resources */,
+				E480AE551F494B1400590E97 /* QRReaderViewController.xib in Resources */,
 				1AFEED9F1F43F0EA00D77FC4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,8 +418,10 @@
 				1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */,
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
 				1A7435861F47F09C00325567 /* EnumStringTransform.swift in Sources */,
+				E480AE541F494B1400590E97 /* QRReaderViewController.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
 				1A7435831F47ED0500325567 /* Wallet.swift in Sources */,
+				E480AE501F49180400590E97 /* UIColorExtension.swift in Sources */,
 				E4532BDE1F4642DB00368024 /* UIStoryboardExtension.swift in Sources */,
 				1A5BA7031F4893BB00651101 /* Transaction.swift in Sources */,
 				E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */,
