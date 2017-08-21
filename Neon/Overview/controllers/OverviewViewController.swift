@@ -8,18 +8,32 @@
 
 import UIKit
 
-final class OverviewViewController: UIViewController, InterfaceInitializing
+final class OverviewViewController: UIViewController
 {
     //MARK: - UI
     @IBOutlet weak var refreshButton:       UIBarButtonItem?
     @IBOutlet weak var qrImageView:         UIImageView?
     @IBOutlet weak var publicAddressButton: UIButton?
+    @IBOutlet weak var neoValueLabel:       UILabel?
+    @IBOutlet weak var gasValueLabel:       UILabel?
+    @IBOutlet weak var claimButton:         UIButton?
+    
     
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "donut-large") }
 
     //MARK: - Properties
     private var wallet:Wallet?
+    {
+        didSet
+        {
+            guard let neoBalance = wallet?.neo?.balance,
+                let gasBalance = wallet?.gas?.balance else
+            { return }
+            self.neoValueLabel?.text = "\(neoBalance)"
+            self.gasValueLabel?.text = "\(gasBalance)"
+        }
+    }
     
     /// Stores the public Neo address
     var publicAddress: String = ""
@@ -28,6 +42,7 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
         {
             self.publicAddressButton?.setTitle(self.publicAddress, for: .normal)
             self.qrImageView?.setImage(withQRCode: self.publicAddress)
+            self.loadWallet(forAddress: self.publicAddress)
         }
     }
     
@@ -44,25 +59,42 @@ final class OverviewViewController: UIViewController, InterfaceInitializing
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.title = NSLocalizedString("Overview", comment: "overview")
+        self.resetUI()
     }
     
     
     // Loads the wallet info for the given public address
     private func loadWallet(forAddress address:String)
     {
-        weak var weakself = self
         NeonLightWalletDB.shared.getWallet(
             forAddress: address,
             successBlock:
-            {(wallet) in
-                weakself?.wallet = wallet
+            {[weak self] (wallet) in
+                self?.wallet = wallet
             },
             failureBlock:
-            {(error) in
-                //TODO: stuff here
+            {[weak self] (error) in
+                let alert = UIAlertController(title: error?.localizedDescription,
+                                              message: nil,
+                                              cancel: nil,
+                                              preferredStyle: .alert)
+                self?.present(alert, animated: true, completion: nil)
             }
         )
+    }
+}
+
+
+extension OverviewViewController: InterfaceInitializing
+{
+    func resetUI()
+    {
+        self.title = NSLocalizedString("Overview", comment: "overview")
+        
+        self.claimButton?.setTitleColor(.neonLogo, for: .normal)
+        self.claimButton?.layer.cornerRadius = 3
+        self.claimButton?.layer.borderWidth = 3
+        self.claimButton?.layer.borderColor = UIColor.neonLogo.cgColor
     }
 }
 
@@ -92,5 +124,21 @@ extension OverviewViewController
                 UIPasteboard.general.string = self?.publicAddress
         })
         alert.addAction(copyAction)
+    }
+}
+
+
+//MARK: - Claming GAS
+extension OverviewViewController
+{
+    @IBAction func claimAction(_ sender: UIButton)
+    {
+        self.claimGas()
+    }
+    
+    
+    func claimGas()
+    {
+        //TODO: claim gas
     }
 }
