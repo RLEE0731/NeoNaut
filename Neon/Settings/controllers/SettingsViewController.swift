@@ -9,8 +9,15 @@
 import UIKit
 
 
+protocol SettingsViewControllerDelegate: class
+{
+    func SettingsViewControllerWillLogout(viewcontroller: SettingsViewController)
+}
+
+
 final class SettingsViewController: UIViewController, InterfaceInitializing
 {
+    weak var delegate: SettingsViewControllerDelegate?
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "settings") }
     
@@ -27,6 +34,12 @@ final class SettingsViewController: UIViewController, InterfaceInitializing
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
+    
+    
+    @IBAction func logoutAction(_ sender: Any)
+    {
+        self.delegate?.SettingsViewControllerWillLogout(viewcontroller: self)
     }
 }
 

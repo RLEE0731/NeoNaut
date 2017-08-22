@@ -31,11 +31,17 @@ class TabBarController: UITabBarController
         
         guard self.isLoggedIn else
         {
-            let login = LoginViewController.loadFromNib()
-            login.delegate = self
-            self.present(login, animated: true, completion: nil)
+            self.showLogin()
             return
         }   
+    }
+    
+    
+    func showLogin()
+    {
+        let login = LoginViewController.loadFromNib()
+        login.delegate = self
+        self.present(login, animated: true, completion: nil)
     }
     
     
@@ -50,6 +56,7 @@ class TabBarController: UITabBarController
         self.historyVC = history
         
         let settings = SettingsViewController.loadFromNib()
+        settings.delegate = self
         settings.tabBarItem.image = settings.tabBarImage
         self.settingsVC = settings
 
@@ -69,7 +76,19 @@ extension TabBarController: LoginViewControllerDelegate
     func loginViewController(controller: LoginViewController, didLoginWithPublicAddress publicAddress: String)
     {
         UserDefaults.standard.set(value: publicAddress, forKey: .neoPublicAddress)
-        NotificationCenter.default.post(name: NSNotification.Name.didSavePublicAddress, object: nil)
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+//MARK: - Delegate: settings
+extension TabBarController: SettingsViewControllerDelegate
+{
+    func SettingsViewControllerWillLogout(viewcontroller: SettingsViewController)
+    {
+        //clear user defaults, show login
+        UserDefaults.standard.set(value: nil, forKey: .neoPublicAddress)
+        self.selectedIndex = 0
+        self.showLogin()
     }
 }

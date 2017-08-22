@@ -56,6 +56,11 @@ final class OverviewViewController: UIViewController
                                                using:
             { [weak self] (notification) in
                 self?.resetUI()
+                if let pubAddress = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String
+                {
+                    self?.publicAddressButton?.setTitle(pubAddress, for: .normal)
+                    self?.qrImageView?.setImage(withQRCode: pubAddress)
+                }
                 self?.loadWallet()
         })
     }
@@ -97,11 +102,10 @@ extension OverviewViewController: InterfaceInitializing
         self.claimButton?.layer.borderWidth = 3
         self.claimButton?.layer.borderColor = UIColor.neonLogo.cgColor
         
-        if let pubAddress = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String
-        {
-            self.publicAddressButton?.setTitle(pubAddress, for: .normal)
-            self.qrImageView?.setImage(withQRCode: pubAddress)
-        }
+        self.publicAddressButton?.setTitle("--", for: .normal)
+        self.qrImageView?.setImage(withQRCode: "")
+        self.neoValueLabel?.text = "--"
+        self.gasValueLabel?.text = "--"
     }
 }
 
