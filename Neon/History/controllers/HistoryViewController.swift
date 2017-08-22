@@ -9,14 +9,21 @@
 import UIKit
 
 
-final class HistoryViewController: UIViewController, InterfaceInitializing
+final class HistoryViewController: UIViewController
 {
     //MARK: - UI -
+    @IBOutlet weak var tableView: UITableView?
+    
+    //MARK: - Properties -
     var tabBarImage: UIImage?
     { return #imageLiteral(resourceName: "history") }
     
-    //MARK: - Properties -
-    private var transactions:Array<Transaction> = []
+    fileprivate var transactions:Array<Transaction> = []
+    {
+        didSet
+        { self.tableView?.reloadData() }
+    }
+    
     
     static func loadFromNib() -> HistoryViewController
     {
@@ -30,23 +37,62 @@ final class HistoryViewController: UIViewController, InterfaceInitializing
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.resetUI()
+        
+        TransactionCell.register(withTableView: self.tableView)
+        self.loadTransactions()
     }
     
+    
     /// Loads the list of transactions for the given address
-    private func loadTransactions(forAddress address:String)
+    private func loadTransactions()
     {
-        weak var weakself = self
+        guard let publicAddress = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String else
+        { return }
+        
         NeonLightWalletDB.shared.getTransactions(
-            forAddress: address,
+            forAddress: publicAddress,
             successBlock:
-            {(transactions) in
-                weakself?.transactions = transactions
+            { [weak self] (transactions) in
+                self?.transactions = transactions
             },
             failureBlock:
-            {(error) in
-                // do something here lol
+            { (error) in
+                assertionFailure("\(String(describing: error))")
             }
         )
+    }
+}
+
+
+extension HistoryViewController: UITableViewDataSource
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        tableView.separatorStyle = (self.transactions.count > 0) ? .singleLine : .none
+        return self.transactions.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let transactionCell = tableView.dequeueReusableCell(withIdentifier: TransactionCell.cellIdentifier, for: indexPath) as? TransactionCell
+        transactionCell?.setup(withData: self.transactions[indexPath.row], tableView: tableView, at: indexPath)
+        return transactionCell ?? UITableViewCell()
+    }
+}
+
+
+extension HistoryViewController: UITableViewDelegate
+{
+    
+}
+
+
+extension HistoryViewController: InterfaceInitializing
+{
+    func resetUI()
+    {
+        self.title = NSLocalizedString("Transactions", comment: "transactions")
     }
 }

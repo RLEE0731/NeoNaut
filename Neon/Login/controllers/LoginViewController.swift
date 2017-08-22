@@ -52,9 +52,10 @@ final class LoginViewController: UIViewController
     
     @IBAction func loginAction(_ sender: Any)
     {
-        //TODO: login network call
         guard let key = self.textField?.text else
         { return }
+        //TODO: login network call
+        UserDefaults.standard.set(value: key, forKey: .neoPublicAddress)
         self.delegate?.loginViewController(controller: self, didLoginWithPublicAddress: key)
     }
     

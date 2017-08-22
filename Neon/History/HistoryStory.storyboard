@@ -21,20 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9o-q1-VkB">
-                                <rect key="frame" x="160" y="323" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wc0-XZ-NN4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="G43-Fk-vSh" id="XSt-57-GoN"/>
+                                    <outlet property="delegate" destination="G43-Fk-vSh" id="xSM-wR-Cuh"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b9o-q1-VkB" firstAttribute="centerX" secondItem="fqy-Xg-1cG" secondAttribute="centerX" id="TGA-N3-bJJ"/>
-                            <constraint firstItem="b9o-q1-VkB" firstAttribute="centerY" secondItem="fqy-Xg-1cG" secondAttribute="centerY" id="aaW-Tv-Szg"/>
+                            <constraint firstItem="Wc0-XZ-NN4" firstAttribute="top" secondItem="fqy-Xg-1cG" secondAttribute="top" id="LTw-Yk-qag"/>
+                            <constraint firstAttribute="trailing" secondItem="Wc0-XZ-NN4" secondAttribute="trailing" id="Usg-Zh-5ug"/>
+                            <constraint firstItem="4sP-p8-uFu" firstAttribute="top" secondItem="Wc0-XZ-NN4" secondAttribute="bottom" id="cNd-H1-HkU"/>
+                            <constraint firstItem="Wc0-XZ-NN4" firstAttribute="leading" secondItem="fqy-Xg-1cG" secondAttribute="leading" id="gSK-LZ-KBK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QJx-fh-lH0"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="Wc0-XZ-NN4" id="Mea-AE-9Yy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i99-iw-6QU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

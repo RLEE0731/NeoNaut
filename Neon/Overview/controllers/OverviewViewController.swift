@@ -36,10 +36,17 @@ final class OverviewViewController: UIViewController
     }
     
     /// Stores the public Neo address
-    var publicAddress: String = ""
+    var publicAddress: String
     {
-        didSet
+        get
         {
+            guard let val = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String else
+            { return "" }
+            return val
+        }
+        set(newValue)
+        {
+            UserDefaults.standard.set(value: newValue, forKey: .neoPublicAddress)
             self.publicAddressButton?.setTitle(self.publicAddress, for: .normal)
             self.qrImageView?.setImage(withQRCode: self.publicAddress)
             self.loadWallet(forAddress: self.publicAddress)

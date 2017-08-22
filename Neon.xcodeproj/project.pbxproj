@@ -40,6 +40,10 @@
 		E480AE541F494B1400590E97 /* QRReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E480AE521F494B1400590E97 /* QRReaderViewController.swift */; };
 		E480AE551F494B1400590E97 /* QRReaderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E480AE531F494B1400590E97 /* QRReaderViewController.xib */; };
 		E4AC7B471F48F0A000553E09 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */; };
+		E4E144881F4BA225005AA493 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E144861F4BA225005AA493 /* TransactionCell.swift */; };
+		E4E144891F4BA225005AA493 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E144871F4BA225005AA493 /* TransactionCell.xib */; };
+		E4E1448B1F4BA258005AA493 /* TableViewCellHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1448A1F4BA258005AA493 /* TableViewCellHandling.swift */; };
+		E4E1448D1F4BAEC9005AA493 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +82,10 @@
 		E480AE521F494B1400590E97 /* QRReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRReaderViewController.swift; sourceTree = "<group>"; };
 		E480AE531F494B1400590E97 /* QRReaderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRReaderViewController.xib; sourceTree = "<group>"; };
 		E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		E4E144861F4BA225005AA493 /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		E4E144871F4BA225005AA493 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		E4E1448A1F4BA258005AA493 /* TableViewCellHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellHandling.swift; sourceTree = "<group>"; };
+		E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				E40A54E41F44245D00E898D9 /* InterfaceInitializing.swift */,
+				E4E1448A1F4BA258005AA493 /* TableViewCellHandling.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -237,6 +246,8 @@
 		E40A54E81F442D6200E898D9 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				E4E144861F4BA225005AA493 /* TransactionCell.swift */,
+				E4E144871F4BA225005AA493 /* TransactionCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 				E4AC7B461F48F0A000553E09 /* UIImageViewExtension.swift */,
 				E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */,
 				E480AE4F1F49180400590E97 /* UIColorExtension.swift */,
+				E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -376,6 +388,7 @@
 				E40A54FE1F44319200E898D9 /* SettingsStory.storyboard in Resources */,
 				1AFEEDA41F43F0EA00D77FC4 /* LaunchScreen.storyboard in Resources */,
 				E40A54FA1F442FFB00E898D9 /* HistoryStory.storyboard in Resources */,
+				E4E144891F4BA225005AA493 /* TransactionCell.xib in Resources */,
 				1AFEEDA11F43F0EA00D77FC4 /* Assets.xcassets in Resources */,
 				E40A54F21F442DC900E898D9 /* OverviewStory.storyboard in Resources */,
 				1AFEEDAE1F43F8C200D77FC4 /* Cartfile in Resources */,
@@ -421,10 +434,13 @@
 				E480AE541F494B1400590E97 /* QRReaderViewController.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,
 				1A7435831F47ED0500325567 /* Wallet.swift in Sources */,
+				E4E1448B1F4BA258005AA493 /* TableViewCellHandling.swift in Sources */,
 				E480AE501F49180400590E97 /* UIColorExtension.swift in Sources */,
+				E4E1448D1F4BAEC9005AA493 /* UserDefaultsExtension.swift in Sources */,
 				E4532BDE1F4642DB00368024 /* UIStoryboardExtension.swift in Sources */,
 				1A5BA7031F4893BB00651101 /* Transaction.swift in Sources */,
 				E40A54F01F442DA200E898D9 /* OverviewViewController.swift in Sources */,
+				E4E144881F4BA225005AA493 /* TransactionCell.swift in Sources */,
 				E4AC7B471F48F0A000553E09 /* UIImageViewExtension.swift in Sources */,
 				1AFEED981F43F0EA00D77FC4 /* AppDelegate.swift in Sources */,
 				1A74358B1F47F55000325567 /* NeonLightWalletDB.swift in Sources */,
