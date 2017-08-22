@@ -35,24 +35,6 @@ final class OverviewViewController: UIViewController
         }
     }
     
-    /// Stores the public Neo address
-    var publicAddress: String
-    {
-        get
-        {
-            guard let val = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String else
-            { return "" }
-            return val
-        }
-        set(newValue)
-        {
-            UserDefaults.standard.set(value: newValue, forKey: .neoPublicAddress)
-            self.publicAddressButton?.setTitle(self.publicAddress, for: .normal)
-            self.qrImageView?.setImage(withQRCode: self.publicAddress)
-            self.loadWallet(forAddress: self.publicAddress)
-        }
-    }
-    
     
     static func loadFromNib() -> OverviewViewController
     {
@@ -67,12 +49,24 @@ final class OverviewViewController: UIViewController
     {
         super.viewDidLoad()
         self.resetUI()
+        self.loadWallet()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.didSavePublicAddress,
+                                               object: nil,
+                                               queue: nil,
+                                               using:
+            { [weak self] (notification) in
+                self?.resetUI()
+                self?.loadWallet()
+        })
     }
     
     
     // Loads the wallet info for the given public address
-    private func loadWallet(forAddress address:String)
+    private func loadWallet()
     {
+        guard let address = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String else
+        { return }
+        
         NeonLightWalletDB.shared.getWallet(
             forAddress: address,
             successBlock:
@@ -102,6 +96,12 @@ extension OverviewViewController: InterfaceInitializing
         self.claimButton?.layer.cornerRadius = 3
         self.claimButton?.layer.borderWidth = 3
         self.claimButton?.layer.borderColor = UIColor.neonLogo.cgColor
+        
+        if let pubAddress = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String
+        {
+            self.publicAddressButton?.setTitle(pubAddress, for: .normal)
+            self.qrImageView?.setImage(withQRCode: pubAddress)
+        }
     }
 }
 
@@ -127,8 +127,10 @@ extension OverviewViewController
         let copyAction = UIAlertAction(title: NSLocalizedString("Copy", comment: "copy"),
                                        style: .default,
                                        handler:
-            { [weak self] (action) in
-                UIPasteboard.general.string = self?.publicAddress
+            { (action) in
+                guard let address = UserDefaults.standard.value(forKey: .neoPublicAddress) as? String else
+                { return }
+                UIPasteboard.general.string = address
         })
         alert.addAction(copyAction)
     }

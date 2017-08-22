@@ -44,6 +44,7 @@
 		E4E144891F4BA225005AA493 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E144871F4BA225005AA493 /* TransactionCell.xib */; };
 		E4E1448B1F4BA258005AA493 /* TableViewCellHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1448A1F4BA258005AA493 /* TableViewCellHandling.swift */; };
 		E4E1448D1F4BAEC9005AA493 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */; };
+		E4EA68021F4BDC9200A13C25 /* NotificationNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EA68011F4BDC9200A13C25 /* NotificationNameExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E4E144871F4BA225005AA493 /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		E4E1448A1F4BA258005AA493 /* TableViewCellHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellHandling.swift; sourceTree = "<group>"; };
 		E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		E4EA68011F4BDC9200A13C25 /* NotificationNameExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +312,7 @@
 				E4532BDD1F4642DB00368024 /* UIStoryboardExtension.swift */,
 				E480AE4F1F49180400590E97 /* UIColorExtension.swift */,
 				E4E1448C1F4BAEC9005AA493 /* UserDefaultsExtension.swift */,
+				E4EA68011F4BDC9200A13C25 /* NotificationNameExtension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				1A7435791F47DB0300325567 /* Resource.swift in Sources */,
 				1A74357B1F47DBE300325567 /* AutoMapping.swift in Sources */,
 				E40A54E11F44211400E898D9 /* LoginViewController.swift in Sources */,
+				E4EA68021F4BDC9200A13C25 /* NotificationNameExtension.swift in Sources */,
 				1A7435861F47F09C00325567 /* EnumStringTransform.swift in Sources */,
 				E480AE541F494B1400590E97 /* QRReaderViewController.swift in Sources */,
 				E40A54D51F4412B100E898D9 /* TabBarController.swift in Sources */,

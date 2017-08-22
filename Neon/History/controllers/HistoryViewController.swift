@@ -37,10 +37,16 @@ final class HistoryViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        self.resetUI()
-        
         TransactionCell.register(withTableView: self.tableView)
+        self.resetUI()
         self.loadTransactions()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.didSavePublicAddress,
+                                               object: nil,
+                                               queue: nil,
+                                               using:
+            { [weak self] (notification) in
+                self?.loadTransactions()
+        })
     }
     
     

@@ -11,13 +11,7 @@ import UIKit
 class TabBarController: UITabBarController
 {
     var isLoggedIn: Bool
-    { return self.publicAddress.characters.count > 0 }
-    
-    var publicAddress:  String  = ""
-    {
-        didSet
-        { self.overviewVC?.publicAddress = self.publicAddress }
-    }
+    { return UserDefaults.standard.value(forKey: .neoPublicAddress) != nil }
     
     var historyVC:      HistoryViewController?
     var overviewVC:     OverviewViewController?
@@ -74,7 +68,8 @@ extension TabBarController: LoginViewControllerDelegate
 {
     func loginViewController(controller: LoginViewController, didLoginWithPublicAddress publicAddress: String)
     {
-        self.publicAddress = publicAddress
+        UserDefaults.standard.set(value: publicAddress, forKey: .neoPublicAddress)
+        NotificationCenter.default.post(name: NSNotification.Name.didSavePublicAddress, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }
