@@ -15,7 +15,7 @@ extension UserDefaults
     /// List of keys handled by the app
     enum UserDefaultsKey: String
     {
-        case neoPublicAddress = "neoPublicAddress"
+        case neoPublicAddress
     }
     
     
